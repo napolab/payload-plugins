@@ -7,6 +7,22 @@ Payload CMS plugins by napolab, published as separate npm packages.
 | [`@napolab/payload-cloudflare-access`](./packages/payload-cloudflare-access) | Sign Payload admin users in with Cloudflare Access instead of passwords.  |
 | [`@napolab/cloudflare-access-core`](./packages/cloudflare-access-core)       | Framework-agnostic Cloudflare Access JWT helpers (no Payload dependency). |
 
+## Claude Code skills
+
+This repository is also a [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces). The `payload-cloudflare-access` plugin ships skills that set up `@napolab/payload-cloudflare-access` in a Payload project and verify Access tokens with `@napolab/cloudflare-access-core`.
+
+```text
+/plugin marketplace add napolab/payload-plugins
+/plugin install payload-cloudflare-access@napolab-payload-plugins
+```
+
+| Skill                             | Use                                                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `setup-payload-cloudflare-access` | Install and configure `cloudflareAccessPlugin`, Access application / env vars, profile sync, debug. |
+| `cloudflare-access-core`          | Verify Access JWTs in Workers, Hono or Next.js middleware, read custom claims, fetch get-identity.  |
+
+The marketplace lives in [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) and the plugin in [`plugins/payload-cloudflare-access`](./plugins/payload-cloudflare-access). Validate changes with `claude plugin validate .`.
+
 ## Development
 
 Tooling is pinned with [mise](https://mise.jdx.dev/) (Node 24, pnpm 10).

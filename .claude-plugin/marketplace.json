@@ -1,0 +1,18 @@
+{
+  "name": "napolab-payload-plugins",
+  "owner": {
+    "name": "napolab"
+  },
+  "metadata": {
+    "description": "Claude Code skills for napolab's Payload CMS plugins."
+  },
+  "plugins": [
+    {
+      "name": "payload-cloudflare-access",
+      "source": "./plugins/payload-cloudflare-access",
+      "description": "Skills for signing Payload admin users in with Cloudflare Access (@napolab/payload-cloudflare-access) and verifying Access JWTs outside Payload (@napolab/cloudflare-access-core).",
+      "category": "development",
+      "keywords": ["payload", "payloadcms", "cloudflare", "cloudflare-access", "zero-trust", "auth"]
+    }
+  ]
+}
