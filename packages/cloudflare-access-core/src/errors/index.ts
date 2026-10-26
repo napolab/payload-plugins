@@ -37,9 +37,7 @@ export class InvalidAccessTeamDomain extends Error {
   override readonly name = 'InvalidAccessTeamDomain';
 
   constructor(readonly raw: string) {
-    super(
-      `CF_ACCESS_TEAM_DOMAIN "${raw}" is not a Cloudflare Access team name. Set the team name only, like \`napolab\` (from https://napolab.cloudflareaccess.com), or unset CF_ACCESS_TEAM_DOMAIN / CF_ACCESS_AUD to disable the plugin.`,
-    );
+    super(`"${raw}" is not a Cloudflare Access team name. Pass the team name only, like \`napolab\` (from https://napolab.cloudflareaccess.com).`);
   }
 }
 
