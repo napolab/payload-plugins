@@ -22,7 +22,7 @@ export class AccessTargetCollectionNotFound extends Error {
     super(
       slug === undefined
         ? 'Cloudflare Access is configured but no auth collection exists to attach it to. Set `admin.user` or pass `collection` to cloudflareAccessPlugin.'
-        : `Cloudflare Access is configured but "${slug}" is not an auth collection in the Payload config. Fix \`admin.user\` / the plugin \`collection\` option, or unset CF_ACCESS_TEAM_DOMAIN / CF_ACCESS_AUD to disable the plugin.`,
+        : `Cloudflare Access is configured but "${slug}" is not an auth collection in the Payload config. Fix \`admin.user\` / the plugin \`collection\` option, or leave the plugin's \`teamDomain\` / \`aud\` options empty to disable it.`,
     );
   }
 }
@@ -32,7 +32,7 @@ export class AccessLogoutEndpointsDisabled extends Error {
 
   constructor(readonly slug: string) {
     super(
-      `Cloudflare Access is configured but "${slug}" sets \`endpoints: false\`, so the Access logout endpoint cannot be added (adding it would re-enable every default REST endpoint of the collection). Remove \`endpoints: false\` from "${slug}", or unset CF_ACCESS_TEAM_DOMAIN / CF_ACCESS_AUD to disable the plugin.`,
+      `Cloudflare Access is configured but "${slug}" sets \`endpoints: false\`, so the Access logout endpoint cannot be added (adding it would re-enable every default REST endpoint of the collection). Remove \`endpoints: false\` from "${slug}", or leave the plugin's \`teamDomain\` / \`aud\` options empty to disable it.`,
     );
   }
 }

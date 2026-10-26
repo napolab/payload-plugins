@@ -191,6 +191,12 @@ describe('cloudflareAccessPlugin', () => {
     await expect(async () => plugin(configWith([usersCollection, mediaCollection]))).rejects.toThrow(/"media" is not an auth collection/);
   });
 
+  test('tells how to disable the plugin through its options when the target is not an auth collection', async () => {
+    const plugin = cloudflareAccessPlugin({ ...configured, collection: 'media' });
+
+    await expect(async () => plugin(configWith([usersCollection, mediaCollection]))).rejects.toThrow(/leave the plugin's `teamDomain` \/ `aud` options empty to disable it/);
+  });
+
   test('throws when Access is configured but the target slug does not exist', async () => {
     const plugin = cloudflareAccessPlugin({ ...configured, collection: 'ghosts' });
 
@@ -319,6 +325,12 @@ describe('cloudflareAccessPlugin', () => {
       const plugin = cloudflareAccessPlugin(configured);
 
       await expect(async () => plugin(configWith([{ ...usersCollection, endpoints: false }]))).rejects.toThrow(AccessLogoutEndpointsDisabled);
+    });
+
+    test('tells how to disable the plugin through its options when the REST endpoints are disabled', async () => {
+      const plugin = cloudflareAccessPlugin(configured);
+
+      await expect(async () => plugin(configWith([{ ...usersCollection, endpoints: false }]))).rejects.toThrow(/leave the plugin's `teamDomain` \/ `aud` options empty to disable it/);
     });
 
     test('points the logout button at the target collection under routes.api', async () => {
