@@ -1,6 +1,6 @@
 {
   "name": "@napolab/payload-cloudflare-access",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Payload CMS plugin that signs admin users in with Cloudflare Access instead of passwords.",
   "keywords": [
     "cloudflare",
