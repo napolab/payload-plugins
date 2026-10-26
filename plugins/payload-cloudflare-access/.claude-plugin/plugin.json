@@ -1,0 +1,12 @@
+{
+  "name": "payload-cloudflare-access",
+  "version": "0.1.0",
+  "description": "Skills for signing Payload admin users in with Cloudflare Access (@napolab/payload-cloudflare-access) and verifying Access JWTs outside Payload (@napolab/cloudflare-access-core).",
+  "author": {
+    "name": "napolab"
+  },
+  "homepage": "https://github.com/napolab/payload-plugins",
+  "repository": "https://github.com/napolab/payload-plugins",
+  "license": "MIT",
+  "keywords": ["payload", "payloadcms", "cloudflare", "cloudflare-access", "zero-trust", "auth"]
+}
