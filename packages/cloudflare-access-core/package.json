@@ -1,6 +1,6 @@
 {
   "name": "@napolab/cloudflare-access-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Framework-agnostic helpers for verifying Cloudflare Access JWTs: token extraction, JWT verification, AUD / team-domain parsing, CSRF checks and the Access identity (get-identity).",
   "keywords": [
     "cloudflare",
