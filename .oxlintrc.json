@@ -1,0 +1,227 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["unicorn", "typescript", "import", "promise", "react", "react-perf"],
+  "categories": {},
+  "rules": {
+    "constructor-super": "warn",
+    "for-direction": "warn",
+    "func-style": ["deny", "expression"],
+    "prefer-const": "deny",
+    "no-var": "deny",
+    "no-param-reassign": [
+      "deny",
+      {
+        "props": true
+      }
+    ],
+    "no-plusplus": "deny",
+    "prefer-arrow-callback": "deny",
+    "arrow-body-style": ["warn", "as-needed"],
+    "max-lines-per-function": [
+      "warn",
+      {
+        "max": 50,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-statements": ["warn", 15],
+    "complexity": ["warn", 10],
+    "no-restricted-properties": [
+      "deny",
+      {
+        "object": "Promise",
+        "property": "all",
+        "message": "Avoid Promise.all; use sequential async (for-of / async reduce)."
+      },
+      {
+        "object": "Promise",
+        "property": "allSettled",
+        "message": "Avoid Promise.allSettled; use sequential async (for-of / async reduce)."
+      },
+      {
+        "object": "Promise",
+        "property": "race",
+        "message": "Avoid Promise.race; model the timeout/cancellation explicitly."
+      },
+      {
+        "object": "Promise",
+        "property": "any",
+        "message": "Avoid Promise.any; choose deterministically (sequential async)."
+      },
+      {
+        "property": "push",
+        "message": "Avoid Array.prototype.push; prefer spread, reduce, or recursion."
+      },
+      {
+        "property": "then",
+        "message": "Avoid .then(); use async/await or neverthrow chaining."
+      },
+      {
+        "property": "catch",
+        "message": "Avoid .catch(); use try/catch or neverthrow .mapErr()."
+      },
+      {
+        "property": "finally",
+        "message": "Avoid .finally(); use try/finally."
+      }
+    ],
+    "operator-assignment": ["deny", "never"],
+    "no-async-promise-executor": "warn",
+    "no-caller": "warn",
+    "no-class-assign": "warn",
+    "no-compare-neg-zero": "warn",
+    "no-cond-assign": "warn",
+    "no-console": "allow",
+    "no-const-assign": "warn",
+    "no-constant-binary-expression": "warn",
+    "no-constant-condition": "warn",
+    "no-control-regex": "warn",
+    "no-debugger": "warn",
+    "no-delete-var": "warn",
+    "no-dupe-class-members": "warn",
+    "no-dupe-else-if": "warn",
+    "no-dupe-keys": "warn",
+    "no-duplicate-case": "warn",
+    "no-else-return": [
+      "deny",
+      {
+        "allowElseIf": false
+      }
+    ],
+    "no-empty-character-class": "warn",
+    "no-empty-pattern": "warn",
+    "no-empty-static-block": "warn",
+    "no-eval": "warn",
+    "no-ex-assign": "warn",
+    "no-extra-boolean-cast": "warn",
+    "no-func-assign": "warn",
+    "no-global-assign": "warn",
+    "no-import-assign": "warn",
+    "no-invalid-regexp": "warn",
+    "no-irregular-whitespace": "warn",
+    "no-loss-of-precision": "warn",
+    "no-new-native-nonconstructor": "warn",
+    "no-nonoctal-decimal-escape": "warn",
+    "no-obj-calls": "warn",
+    "no-self-assign": "warn",
+    "no-setter-return": "warn",
+    "no-shadow-restricted-names": "warn",
+    "no-sparse-arrays": "warn",
+    "no-this-before-super": "warn",
+    "no-unassigned-vars": "warn",
+    "no-unreachable": "deny",
+    "no-unsafe-finally": "warn",
+    "no-unsafe-negation": "warn",
+    "no-unsafe-optional-chaining": "warn",
+    "no-unused-expressions": "warn",
+    "no-unused-labels": "warn",
+    "no-unused-private-class-members": "warn",
+    "no-unused-vars": "warn",
+    "no-useless-backreference": "warn",
+    "no-useless-catch": "warn",
+    "no-useless-escape": "warn",
+    "no-useless-rename": "warn",
+    "no-with": "warn",
+    "require-yield": "warn",
+    "use-isnan": "warn",
+    "valid-typeof": "warn",
+    "import/default": "warn",
+    "import/namespace": "warn",
+    "promise/no-callback-in-promise": "warn",
+    "promise/no-new-statics": "warn",
+    "promise/prefer-await-to-then": "deny",
+    "promise/valid-params": "warn",
+    "typescript/array-type": [
+      "deny",
+      {
+        "default": "array"
+      }
+    ],
+    "typescript/await-thenable": "warn",
+    "typescript/consistent-type-imports": "deny",
+    "typescript/no-array-delete": "warn",
+    "typescript/no-base-to-string": "warn",
+    "typescript/no-duplicate-enum-values": "warn",
+    "typescript/no-duplicate-type-constituents": "warn",
+    "typescript/no-explicit-any": "deny",
+    "typescript/no-extra-non-null-assertion": "warn",
+    "typescript/no-floating-promises": "deny",
+    "typescript/no-for-in-array": "warn",
+    "typescript/no-implied-eval": "warn",
+    "typescript/no-meaningless-void-operator": "warn",
+    "typescript/no-misused-new": "warn",
+    "typescript/no-misused-spread": "warn",
+    "typescript/no-non-null-asserted-optional-chain": "warn",
+    "typescript/no-redundant-type-constituents": "warn",
+    "typescript/no-this-alias": "warn",
+    "typescript/no-unnecessary-parameter-property-assignment": "warn",
+    "typescript/no-unsafe-declaration-merging": "warn",
+    "typescript/no-unsafe-unary-minus": "warn",
+    "typescript/no-useless-empty-export": "warn",
+    "typescript/no-wrapper-object-types": "warn",
+    "typescript/prefer-as-const": "warn",
+    "typescript/require-array-sort-compare": "warn",
+    "typescript/restrict-template-expressions": "warn",
+    "typescript/strict-boolean-expressions": "deny",
+    "typescript/triple-slash-reference": "warn",
+    "typescript/unbound-method": "warn",
+    "typescript/prefer-readonly": "deny",
+    "unicorn/filename-case": [
+      "deny",
+      {
+        "case": "kebabCase"
+      }
+    ],
+    "unicorn/no-array-reduce": "allow",
+    "unicorn/no-await-in-promise-methods": "warn",
+    "unicorn/no-empty-file": "warn",
+    "unicorn/no-invalid-fetch-options": "warn",
+    "unicorn/no-invalid-remove-event-listener": "warn",
+    "unicorn/no-new-array": "warn",
+    "unicorn/no-single-promise-in-promise-methods": "warn",
+    "unicorn/no-thenable": "warn",
+    "unicorn/no-unnecessary-await": "warn",
+    "unicorn/no-useless-fallback-in-spread": "warn",
+    "unicorn/no-useless-length-check": "warn",
+    "unicorn/no-useless-spread": "warn",
+    "unicorn/prefer-node-protocol": "deny",
+    "unicorn/prefer-set-size": "warn",
+    "unicorn/prefer-string-starts-ends-with": "warn",
+    "react-perf/jsx-no-new-function-as-prop": "warn",
+    "react-perf/jsx-no-new-object-as-prop": "warn",
+    "react-perf/jsx-no-new-array-as-prop": "warn"
+  },
+  "settings": {
+    "vitest": {
+      "typecheck": false
+    }
+  },
+  "env": {
+    "builtin": true
+  },
+  "globals": {},
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/__mocks__/**"],
+      "env": null,
+      "globals": null,
+      "plugins": null,
+      "rules": {
+        "typescript/consistent-type-imports": "allow",
+        "typescript/await-thenable": "allow",
+        "typescript/unbound-method": "allow",
+        "prefer-const": "allow",
+        "no-var": "allow",
+        "no-param-reassign": "allow",
+        "no-plusplus": "allow",
+        "no-restricted-properties": "allow",
+        "operator-assignment": "allow",
+        "max-lines-per-function": "allow",
+        "max-statements": "allow",
+        "complexity": "allow"
+      }
+    }
+  ],
+  "ignorePatterns": ["**/dist/**", "coverage/**"]
+}

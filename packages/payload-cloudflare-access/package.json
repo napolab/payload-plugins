@@ -1,0 +1,93 @@
+{
+  "name": "@napolab/payload-cloudflare-access",
+  "version": "0.0.0",
+  "description": "Payload CMS plugin that signs admin users in with Cloudflare Access instead of passwords.",
+  "keywords": [
+    "cloudflare",
+    "cloudflare-access",
+    "payload",
+    "payload-plugin",
+    "payloadcms",
+    "zero-trust"
+  ],
+  "license": "MIT",
+  "author": "napolab",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/napolab/payload-plugins.git",
+    "directory": "packages/payload-cloudflare-access"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./client/access-avatar": "./src/client/access-avatar/index.tsx",
+    "./client/logout-button": "./src/client/logout-button/index.tsx",
+    "./errors": "./src/errors/index.ts",
+    "./plugin": "./src/plugin/index.ts",
+    "./profile-sync": "./src/profile-sync/index.ts",
+    "./resolve-user": "./src/resolve-user/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "./client/access-avatar": {
+        "types": "./dist/client/access-avatar/index.d.ts",
+        "import": "./dist/client/access-avatar/index.js",
+        "default": "./dist/client/access-avatar/index.js"
+      },
+      "./client/logout-button": {
+        "types": "./dist/client/logout-button/index.d.ts",
+        "import": "./dist/client/logout-button/index.js",
+        "default": "./dist/client/logout-button/index.js"
+      },
+      "./errors": {
+        "types": "./dist/errors/index.d.ts",
+        "import": "./dist/errors/index.js",
+        "default": "./dist/errors/index.js"
+      },
+      "./plugin": {
+        "types": "./dist/plugin/index.d.ts",
+        "import": "./dist/plugin/index.js",
+        "default": "./dist/plugin/index.js"
+      },
+      "./profile-sync": {
+        "types": "./dist/profile-sync/index.d.ts",
+        "import": "./dist/profile-sync/index.js",
+        "default": "./dist/profile-sync/index.js"
+      },
+      "./resolve-user": {
+        "types": "./dist/resolve-user/index.d.ts",
+        "import": "./dist/resolve-user/index.js",
+        "default": "./dist/resolve-user/index.js"
+      }
+    },
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean && pnpm copyfiles && pnpm build:types && pnpm build:swc",
+    "build:swc": "swc ./src -d ./dist --strip-leading-paths --ignore \"**/*.test.ts\",\"**/*.test.tsx\",\"**/__mocks__/**\",\"**/*.d.ts\"",
+    "build:types": "tsgo --project tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "copyfiles": "copyfiles -u 1 \"src/**/*.{css,html,json,svg}\" dist"
+  },
+  "dependencies": {
+    "@napolab/cloudflare-access-core": "workspace:*",
+    "jose": "^6.2.3",
+    "neverthrow": "^8.2.0"
+  },
+  "devDependencies": {
+    "@payloadcms/ui": "3.91.0",
+    "payload": "3.91.0",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  },
+  "peerDependencies": {
+    "@payloadcms/ui": "^3.91.0",
+    "payload": "^3.91.0",
+    "react": "^19.0.0"
+  }
+}

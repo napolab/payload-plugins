@@ -1,0 +1,6 @@
+/* Payload の Gravatar(25px の丸)に揃える。正方形でない画像は切り抜く。 */
+.avatar {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}

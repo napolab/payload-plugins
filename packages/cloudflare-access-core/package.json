@@ -1,0 +1,88 @@
+{
+  "name": "@napolab/cloudflare-access-core",
+  "version": "0.0.0",
+  "description": "Framework-agnostic helpers for verifying Cloudflare Access JWTs: token extraction, JWT verification, AUD / team-domain parsing, CSRF checks and the Access identity (get-identity).",
+  "keywords": [
+    "cloudflare",
+    "cloudflare-access",
+    "jwt",
+    "zero-trust"
+  ],
+  "license": "MIT",
+  "author": "napolab",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/napolab/payload-plugins.git",
+    "directory": "packages/cloudflare-access-core"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./audiences": "./src/audiences/index.ts",
+    "./csrf": "./src/csrf/index.ts",
+    "./errors": "./src/errors/index.ts",
+    "./fetch-metadata": "./src/fetch-metadata/index.ts",
+    "./identity": "./src/identity/index.ts",
+    "./team-domain": "./src/team-domain/index.ts",
+    "./token": "./src/token/index.ts",
+    "./verify": "./src/verify/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "./audiences": {
+        "types": "./dist/audiences/index.d.ts",
+        "import": "./dist/audiences/index.js",
+        "default": "./dist/audiences/index.js"
+      },
+      "./csrf": {
+        "types": "./dist/csrf/index.d.ts",
+        "import": "./dist/csrf/index.js",
+        "default": "./dist/csrf/index.js"
+      },
+      "./errors": {
+        "types": "./dist/errors/index.d.ts",
+        "import": "./dist/errors/index.js",
+        "default": "./dist/errors/index.js"
+      },
+      "./fetch-metadata": {
+        "types": "./dist/fetch-metadata/index.d.ts",
+        "import": "./dist/fetch-metadata/index.js",
+        "default": "./dist/fetch-metadata/index.js"
+      },
+      "./identity": {
+        "types": "./dist/identity/index.d.ts",
+        "import": "./dist/identity/index.js",
+        "default": "./dist/identity/index.js"
+      },
+      "./team-domain": {
+        "types": "./dist/team-domain/index.d.ts",
+        "import": "./dist/team-domain/index.js",
+        "default": "./dist/team-domain/index.js"
+      },
+      "./token": {
+        "types": "./dist/token/index.d.ts",
+        "import": "./dist/token/index.js",
+        "default": "./dist/token/index.js"
+      },
+      "./verify": {
+        "types": "./dist/verify/index.d.ts",
+        "import": "./dist/verify/index.js",
+        "default": "./dist/verify/index.js"
+      }
+    },
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean && pnpm build:types && pnpm build:swc",
+    "build:swc": "swc ./src -d ./dist --strip-leading-paths --ignore \"**/*.test.ts\",\"**/*.test.tsx\",\"**/__mocks__/**\"",
+    "build:types": "tsgo --project tsconfig.build.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "jose": "^6.2.3",
+    "neverthrow": "^8.2.0"
+  }
+}

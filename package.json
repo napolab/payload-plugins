@@ -1,0 +1,45 @@
+{
+  "name": "payload-plugins",
+  "version": "0.0.0",
+  "private": true,
+  "description": "napolab's Payload CMS plugins",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "fmt": "oxfmt --write . && oxlint --type-aware --fix .",
+    "lint": "oxfmt --check . && oxlint --type-aware .",
+    "typecheck": "tsgo --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3",
+    "@swc/cli": "^0.8.1",
+    "@swc/core": "^1.16.20",
+    "@types/node": "^22.20.5",
+    "@types/react": "~19.2.18",
+    "@types/react-dom": "~19.2.7",
+    "@typescript/native-preview": "7.0.0-dev.20251229.1",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/browser-playwright": "^5.0.5",
+    "copyfiles": "^2.4.1",
+    "husky": "^9.1.7",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "oxlint-tsgolint": "^7.0.2005",
+    "playwright": "^1.64.1",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "vitest": "^5.0.5",
+    "vitest-browser-react": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.2"
+}
